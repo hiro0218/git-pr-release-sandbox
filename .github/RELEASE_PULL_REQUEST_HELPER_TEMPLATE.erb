@@ -1,10 +1,11 @@
 Release <%= Time.now %>
 
 <% pull_requests.each do |pr| -%>
-<%=  pr.to_checklist_item %> 
 
 <% pr.labels.each do |labels| -%>
-<%=  labels.name %>, 
+ <% if labels.name == 'documentation' %>
+  <%= pr.to_checklist_item %>, <%= labels.name %>
+ <% end %>
 <% end -%>
 
 <% end -%>
