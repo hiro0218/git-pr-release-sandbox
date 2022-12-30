@@ -15,11 +15,16 @@ Release <%= Time.now %>
 ## documentation 以外
 
 <% pull_requests.each do |pr| -%>
-
+<% found = false ->
  <% pr.labels.each do |labels| -%>
-  <% if labels.name != 'documentation' %>
-   <%= pr.to_checklist_item %>, <%= labels.name -%>
+  <% if labels.name == 'documentation' %>
+  <%- 
+   found = true
+   break
+  -%>
   <%- end -%>
  <%- end -%>
-
+<% if found %>
+<%= pr.to_checklist_item %>
+<% end -%>
 <% end -%>
