@@ -16,14 +16,14 @@ Release <%= Time.now %>
 
 <% pull_requests.each do |pr| -%>
 <% found = false -%>
- <% pr.labels.each do |labels| -%>
-  <% if labels.name == 'documentation' %>
-  <%- 
-   found = true
-   break
-  -%>
-  <%- end -%>
- <%- end -%>
+<% pr.labels.each do |labels| -%>
+<% 
+    if labels.name == 'documentation'
+      found = true
+      break
+    end
+-%>
+<%- end -%>
 <% if found == false %>
 <%= pr.to_checklist_item %>
 <% end -%>
