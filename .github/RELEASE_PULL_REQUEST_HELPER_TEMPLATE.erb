@@ -6,7 +6,7 @@ Release <%= Time.now %>
 
  <% pr.labels.each do |labels| -%>
   <% if labels.name == 'documentation' %>
-   <%= pr.to_checklist_item %>, <%= labels.name %>
+   <%= pr.to_checklist_item %>, <%= labels.name -%>
   <%- end -%>
  <%- end -%>
 
@@ -18,7 +18,7 @@ Release <%= Time.now %>
 
  <% pr.labels.each do |labels| -%>
   <% if labels.name != 'documentation' %>
-   <%= pr.to_checklist_item %>, <%= labels.name %>
+   <%= pr.to_checklist_item %>, <%= labels.name -%>
   <%- end -%>
  <%- end -%>
 
