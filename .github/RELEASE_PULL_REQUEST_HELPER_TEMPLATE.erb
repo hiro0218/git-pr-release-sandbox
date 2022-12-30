@@ -15,7 +15,7 @@ Release <%= Time.now %>
 ## documentation 以外
 
 <% pull_requests.each do |pr| -%>
-<% found = false ->
+<% found = false -%>
  <% pr.labels.each do |labels| -%>
   <% if labels.name == 'documentation' %>
   <%- 
